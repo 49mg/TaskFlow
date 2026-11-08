@@ -2,6 +2,20 @@
 
 A Jira-style task management desktop app (Electron) with a built-in **MCP server**, so Claude can read and manage your projects, issues and sprints. Changes Claude makes show up in the app live.
 
+![Claude updating the board live through MCP](docs/images/live-update.gif)
+
+*Claude creates an issue and moves two others through the MCP server; the open board updates on its own.*
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Summary dashboard](docs/images/summary.png) **Summary**: counts, status, sprint progress, workload and activity | ![Board](docs/images/board.png) **Board**: sprint columns with drag and drop, due dates and filters |
+| ![Backlog](docs/images/backlog.png) **Backlog**: plan sprints and drag issues between them | ![Issue detail](docs/images/issue.png) **Issue detail**: editable fields and comments, including Claude's |
+| ![Documents](docs/images/documents.png) **Documents**: named PDFs per project | ![Integrations](docs/images/integrations.png) **Integrations**: optional Jira, Notion and Trello sync |
+
+*All screenshots use made-up demo data.*
+
 ## Run
 
 ```bash
