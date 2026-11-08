@@ -1,0 +1,55 @@
+{
+  "name": "taskflow",
+  "version": "1.1.0",
+  "description": "Jira-style task management desktop app with a built-in MCP server for Claude",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:nosandbox": "electron . --no-sandbox",
+    "mcp": "node mcp/server.js",
+    "test:mcp": "node scripts/test-mcp.js",
+    "dist": "electron-builder",
+    "test:sync": "node scripts/test-sync.js",
+    "test": "node scripts/test-mcp.js && node scripts/test-sync.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0"
+  },
+  "productName": "TaskFlow",
+  "bin": {
+    "taskflow-mcp": "mcp/server.js"
+  },
+  "build": {
+    "appId": "com.taskflow.app",
+    "productName": "TaskFlow",
+    "asar": false,
+    "files": [
+      "src/**",
+      "mcp/**",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
