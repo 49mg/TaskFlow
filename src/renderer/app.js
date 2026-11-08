@@ -84,9 +84,10 @@ const fmtDateTime = (iso) => iso ? new Date(iso).toLocaleString(undefined, { mon
 function timeAgo(iso) {
   const s = (Date.now() - new Date(iso)) / 1000;
   if (s < 60) return 'just now';
-  if (s < 3600) return `${Math.floor(s / 60)} minutes ago`;
-  if (s < 86400) return `${Math.floor(s / 3600)} hours ago`;
-  if (s < 86400 * 7) return `${Math.floor(s / 86400)} days ago`;
+  const ago = (n, unit) => `${n} ${unit}${n === 1 ? '' : 's'} ago`;
+  if (s < 3600) return ago(Math.floor(s / 60), 'minute');
+  if (s < 86400) return ago(Math.floor(s / 3600), 'hour');
+  if (s < 86400 * 7) return ago(Math.floor(s / 86400), 'day');
   return fmtDate(iso);
 }
 function miniMarkdown(text) {
